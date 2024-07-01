@@ -3,7 +3,18 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'python',
+        'vim',
+        'vimdoc',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -29,6 +40,13 @@ return {
       --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+      -- highlight = { enable = true },
+      -- incremental_selection = { enable = true },
+      -- textobjects = { enable = true },
+      --
+      -- TODO: read thru and add in stuff from here:
+      -- https://github.com/nvim-treesitter/nvim-treesitter
+      -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
   },
 }

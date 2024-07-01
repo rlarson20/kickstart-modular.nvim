@@ -1,3 +1,19 @@
+--  TODO: look into more and see whats useful
+-- https://github.com/alpha2phi/neovim-pde/blob/main/lua/base/coding.lua
+-- https://github.com/hardhackerlabs/oh-my-nvim/blob/main/lua/core.lua
+-- https://github.com/jdhao/nvim-config/blob/master/lua/plugin_specs.lua
+-- https://github.com/igorlfs/dotfiles/blob/main/nvim/.config/nvim/init.lua
+-- https://github.com/rafi/vim-config/blob/master/init.lua
+-- https://github.com/reDpz/nvim/blob/master/init.lua
+-- https://github.com/ecosse3/nvim/blob/master/init.lua
+-- https://github.com/hpiaia/nvim/blob/main/init.lua
+-- https://github.com/raymon-roos/neovim-config/blob/main/init.lua
+-- https://github.com/ThePrimeagen/init.lua/blob/master/lua/theprimeagen/init.lua
+-- https://github.com/folke/dot/blob/master/nvim/init.lua
+-- https://github.com/brainfucksec/neovim-lua/blob/main/nvim/lua/core/lazy.lua
+-- https://github.com/dreamsofcode-io/DreamNvim/blob/main/init.lua
+-- https://github.com/davidosomething/dotfiles/tree/dev/nvim
+--
 --[[
 
 =====================================================================

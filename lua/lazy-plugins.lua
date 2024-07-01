@@ -1,18 +1,15 @@
 -- [[ Configure and install plugins ]]
 --
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
 -- NOTE: Here is where you install your plugins.
+-- TODO: this is where you're gonna refactor again
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
+  --
+  --
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  -- TODO: add other tpoop plugs here
+  'tpope/vim-abolish', -- misspelling coercion
+  'tpope/vim-fugitive', -- git so good it's illegal
+  -- TODO: see if it's worth adding any other tpoop plugs here
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -41,17 +38,11 @@ require('lazy').setup({
 
   require 'kickstart/plugins/cmp',
 
-  -- require 'kickstart/plugins/tokyonight',
-
   require 'kickstart/plugins/todo-comments',
 
   require 'kickstart/plugins/mini',
 
   require 'kickstart/plugins/treesitter',
-
-  -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
-  -- init.lua. If you want these files, they are in the repository, so you can just download them and
-  -- place them in the correct locations.
 
   -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
   --
@@ -74,21 +65,23 @@ require('lazy').setup({
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
+    icons = {},
+    -- icons =
+    --   vim.g.have_nerd_font and {} or {
+    --   cmd = '⌘',
+    --   config = '🛠',
+    --   event = '📅',
+    --   ft = '📂',
+    --   init = '⚙',
+    --   keys = '🗝',
+    --   plugin = '🔌',
+    --   runtime = '💻',
+    --   require = '🌙',
+    --   source = '📄',
+    --   start = '🚀',
+    --   task = '📌',
+    --   lazy = '💤 ',
+    --},
   },
 })
 

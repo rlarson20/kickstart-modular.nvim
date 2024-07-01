@@ -1,3 +1,11 @@
+-- TODO: look through these and consider options
+
+-- nvim/lua/settings.lua at main · harrisoncramer/nvim
+-- https://github.com/harrisoncramer/nvim/blob/main/lua/settings.lua
+
+-- lazy-nvim-starter/.config/nvim/lua/core/options.lua at main · frans-johansson/lazy-nvim-starter
+-- https://github.com/frans-johansson/lazy-nvim-starter/blob/main/.config/nvim/lua/core/options.lua
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!

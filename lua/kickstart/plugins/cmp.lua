@@ -1,3 +1,11 @@
+-- TODO: add this
+-- https://github.com/hrsh7th/nvim-cmp/wiki/Advanced-techniques
+-- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
+-- https://github.com/andersevenrud/cmp-tmux
+-- https://github.com/tamago324/cmp-zsh
+-- https://github.com/jc-doyle/cmp-pandoc-references
+-- https://github.com/Praczet/yaml-tags.nvim
+
 return {
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -19,12 +27,12 @@ return {
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
-          -- {
-          --   'rafamadriz/friendly-snippets',
-          --   config = function()
-          --     require('luasnip.loaders.from_vscode').lazy_load()
-          --   end,
-          -- },
+          {
+            'rafamadriz/friendly-snippets',
+            config = function()
+              require('luasnip.loaders.from_vscode').lazy_load()
+            end,
+          },
         },
       },
       'saadparwaiz1/cmp_luasnip',
@@ -105,6 +113,7 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'codeium' },
         },
       }
     end,
