@@ -4,31 +4,14 @@
 -- TODO: this is where you're gonna refactor again
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  --
-  --
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-abolish', -- misspelling coercion
-  'tpope/vim-fugitive', -- git so good it's illegal
-  -- TODO: see if it's worth adding any other tpoop plugs here
-
-  -- NOTE: Plugins can also be added by using a table,
-  -- with the first argument being the link and the following
-  -- keys can be used to configure plugin behavior/loading/etc.
-  --
-  -- Use `opts = {}` to force a plugin to be loaded.
-  --
-  --  This is equivalent to:
-  --    require('Comment').setup({})
-
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
 
   -- modular approach: using `require 'path/name'` will
   -- include a plugin definition from file lua/path/name.lua
 
   require 'kickstart/plugins/gitsigns',
 
-  require 'kickstart/plugins/which-key',
+  require 'kickstart/plugins/which-key', -- TODO: figure out how to both modularize keybind stuff (making it super simple to add new ones)
+  -- and intertwined with which-key (so i don't need to manually add descriptions)
 
   require 'kickstart/plugins/telescope',
 

@@ -60,7 +60,7 @@ map('n', '<leader>tk', '<C-w>t<C-w>K', { desc = 'Change vertical to horizontal' 
 map('n', '<leader>th', '<C-w>t<C-w>H', { desc = 'Change horizontal to vertical' })
 
 -- Fast Save
-map('n', '<leader>s', ':w<CR>', { desc = 'Save file' })
+-- map('n', '<leader>S', ':w<CR>', { desc = 'Save file' })
 -- Reload config
 map('n', '<leader>R', ':so %<CR>', { desc = 'Reload config file' })
 -- Close ALL WINDOWS
@@ -95,18 +95,8 @@ map('n', '<Leader>v', ':cd ~/.config/nvim/<CR>:Telescope find_files<CR>', { desc
 -- map({ "n", "v" }, "<Leader>p", '"+p', {})
 -- map({ "n", "v" }, "<Leader>P", '"+P', {})
 
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
+-- increment/decrement values
+map('n', '+', '<C-a>')
+map('n', '-', '<C-x>')
 
 -- vim: ts=2 sts=2 sw=2 et

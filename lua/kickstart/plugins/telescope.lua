@@ -1,5 +1,7 @@
 -- NOTE: Plugins can specify dependencies.
 --
+-- https://github.com/nvim-telescope/telescope.nvim
+--
 -- The dependencies are proper plugin specifications as well - anything
 -- you do for a plugin at the top level, you can do for a dependency.
 --
@@ -13,6 +15,7 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for installation instructions
+        -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
         'nvim-telescope/telescope-fzf-native.nvim',
 
         -- `build` is used to run some command when the plugin is installed/updated.

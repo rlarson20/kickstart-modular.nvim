@@ -5,6 +5,9 @@
 -- https://github.com/tamago324/cmp-zsh
 -- https://github.com/jc-doyle/cmp-pandoc-references
 -- https://github.com/Praczet/yaml-tags.nvim
+--https://github.com/hrsh7th/nvim-cmp
+-- https://github.com/hrsh7th/cmp-buffer
+-- https://github.com/hrsh7th/cmp-path
 
 return {
   { -- Autocompletion

@@ -4,7 +4,6 @@
 -- https://github.com/jdhao/nvim-config/blob/master/lua/plugin_specs.lua
 -- https://github.com/igorlfs/dotfiles/blob/main/nvim/.config/nvim/init.lua
 -- https://github.com/rafi/vim-config/blob/master/init.lua
--- https://github.com/reDpz/nvim/blob/master/init.lua
 -- https://github.com/ecosse3/nvim/blob/master/init.lua
 -- https://github.com/hpiaia/nvim/blob/main/init.lua
 -- https://github.com/raymon-roos/neovim-config/blob/main/init.lua
@@ -109,11 +108,12 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
--- [[ Setting options ]]
+-- load keymaps, options, autocmds
 require 'options'
-
--- [[ Basic Keymaps ]]
 require 'keymaps'
+
+require 'custom.autocmds'
+require 'custom.usercmds'
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 require 'lazy-bootstrap'
