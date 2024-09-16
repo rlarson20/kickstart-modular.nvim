@@ -75,4 +75,8 @@ vim.opt.scrolloff = 20
 
 -- conceal level, for obsidian
 vim.opt.conceallevel = 2
+
+-- grep program
+vim.opt.grepprg = 'rg --vimgrep'
+vim.opt.grepformat = '%f:%l:%c:%m'
 -- vim: ts=2 sts=2 sw=2 et
