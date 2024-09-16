@@ -99,4 +99,12 @@ map('n', '<Leader>v', ':cd ~/.config/nvim/<CR>:Telescope find_files<CR>', { desc
 map('n', '+', '<C-a>')
 map('n', '-', '<C-x>')
 
+-- open github link
+map('n', '<Leader>gg', function()
+  local selection = vim.fn.getline '.'
+  local cur = vim.api.nvim_win_get_cursor(0)
+  local path = 'https://github.com/' .. string.match(selection, '%a+/%a+[%.lua]?[%.nvim]?[%.vim]?')
+  vim.ui.open(path)
+end, { expr = true })
+
 -- vim: ts=2 sts=2 sw=2 et
