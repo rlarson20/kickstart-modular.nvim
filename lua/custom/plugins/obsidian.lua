@@ -55,8 +55,8 @@ return {
     completion = {
       -- Set to false to disable completion.
       nvim_cmp = true,
-      -- Trigger completion at 2 chars.
-      min_chars = 2,
+      -- Trigger completion at 4 chars.
+      min_chars = 4,
     },
 
     -- Optional, configure key mappings. These are the defaults. If you don't want to set any keymappings this
@@ -125,9 +125,10 @@ return {
     --  * "prepend_note_path", e.g. '[[foo-bar.md|Foo Bar]]'
     --  * "use_path_only", e.g. '[[foo-bar.md]]'
     -- Or you can set it to a function that takes a table of options and returns a string, like this:
-    wiki_link_func = function(opts)
-      return require('obsidian.util').wiki_link_id_prefix(opts)
-    end,
+    -- wiki_link_func = function(opts)
+    --   return require('obsidian.util').wiki_link_id_prefix(opts)
+    -- end,
+    wiki_link_style = 'prepend_note_path',
 
     -- Optional, customize how markdown links are formatted.
     markdown_link_func = function(opts)
@@ -135,7 +136,7 @@ return {
     end,
 
     -- Either 'wiki' or 'markdown'.
-    preferred_link_style = 'wiki',
+    preferred_link_style = 'markdown',
 
     -- Optional, boolean or a function that takes a filename and returns a boolean.
     -- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
@@ -193,10 +194,10 @@ return {
 
     -- Optional, set to true if you use the Obsidian Advanced URI plugin. TODO: GET SET UP
     -- https://github.com/Vinzent03/obsidian-advanced-uri
-    use_advanced_uri = false,
+    use_advanced_uri = true,
 
     -- Optional, set to true to force ':ObsidianOpen' to bring the app to the foreground.
-    open_app_foreground = false,
+    open_app_foreground = true,
 
     picker = {
       -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.

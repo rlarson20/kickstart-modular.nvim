@@ -1,14 +1,3 @@
--- TODO: add this
--- https://github.com/hrsh7th/nvim-cmp/wiki/Advanced-techniques
--- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
--- https://github.com/andersevenrud/cmp-tmux
--- https://github.com/tamago324/cmp-zsh
--- https://github.com/jc-doyle/cmp-pandoc-references
--- https://github.com/Praczet/yaml-tags.nvim
---https://github.com/hrsh7th/nvim-cmp
--- https://github.com/hrsh7th/cmp-buffer
--- https://github.com/hrsh7th/cmp-path
-
 return {
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -39,6 +28,14 @@ return {
         },
       },
       'saadparwaiz1/cmp_luasnip',
+      --dictionary source, DISABLED
+      -- {
+      --   'uga-rosa/cmp-dictionary',
+      --   opts = {
+      --     paths = { '/usr/share/dict/words' },
+      --     exact_length = 2,
+      --   },
+      -- },
 
       -- Adds other completion capabilities.
       --  nvim-cmp does not ship with all sources by default. They are split
@@ -59,7 +56,16 @@ return {
           end,
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
-
+        -- disable completion inside of comments
+        enabled = function()
+          local context = require 'cmp.config.context'
+          -- keep command mode completion enabled when cursor is in a comment
+          if vim.api.nvim_get_mode().mode == 'c' then
+            return true
+          else
+            return not context.in_treesitter_capture 'comment' and not context.in_syntax_group 'Comment'
+          end
+        end,
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
         --
@@ -116,6 +122,7 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          -- { name = 'dictionary' },
           { name = 'codeium' },
         },
       }

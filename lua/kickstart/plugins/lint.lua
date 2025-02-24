@@ -8,11 +8,11 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
---        local markdownlint = lint.linters.markdownlint
+        --        local markdownlint = lint.linters.markdownlint
         -- markdownlint.args = {
-          -- "--disable",
-          -- "MD013", "MD025",
-          -- "--" -- Required
+        -- "--disable",
+        -- "MD013", "MD025",
+        -- "--" -- Required
         -- }
       }
 

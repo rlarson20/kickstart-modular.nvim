@@ -48,11 +48,8 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
-          -- NOTE: Remember that Lua is a real programming language, and as such it is possible
-          -- to define small helper and utility functions so you don't have to repeat yourself.
-          --
-          -- In this case, we create a function that lets us more easily define mappings specific
-          -- for LSP related items. It sets the mode, buffer and description for us each time.
+          -- define small helper and utility functions so you don't have to repeat yourself.
+          -- easily define mappings specific for LSP related items. It sets the mode, buffer and description for us each time.
           local map = function(keys, func, desc)
             vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
@@ -97,6 +94,9 @@ return {
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+
+          --restart lsp if needed
+          map('<leader>rs', ':LspRestart<CR>', '[R]estart L[S]P')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
@@ -159,7 +159,26 @@ return {
         -- todo: organize the language servers
         clangd = {},
         gopls = {},
-        ruff = {},
+        ruff = {
+          settings = {
+            organizeImports = true,
+            fixAll = true,
+          },
+        },
+        pyright = {
+          settings = {
+            pyright = {
+              -- Disable Pyright's import organizer in favor of Ruff
+              disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                -- Ignore all files for analysis to exclusively use Ruff for linting
+                ignore = { '*' },
+              },
+            },
+          },
+        },
         rust_analyzer = {},
         -- tsserver = {},
         -- agda_ls = {}, -- https://github.com/agda/agda-language-server

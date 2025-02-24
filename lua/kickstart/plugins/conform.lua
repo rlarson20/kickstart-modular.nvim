@@ -26,7 +26,19 @@ return {
         }
       end,
       formatters_by_ft = {
-        lua = { 'stylua' },
+        lua = {
+          'stylua',
+        },
+        markdown = { 'markdownlint', 'markdown_toc' },
+        python = { 'ruff', 'autopep8', 'autoflake', 'docformatter', 'isort' },
+        go = { 'gofmt' },
+        bash = { 'shfmt', 'beautysh' },
+        rust = { 'rustfmt' },
+        javascript = { 'prettier', 'standardjs' },
+        sql = { 'sql-formatter' },
+        c = { 'clang-format' },
+        html = { 'htmlbeautifier' },
+        css = { 'rustywind' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --

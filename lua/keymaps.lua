@@ -2,21 +2,32 @@
 --
 -- https://github.com/m4xshen/dotfiles/blob/main/nvim/nvim/lua/config/mappings.lua
 -- https://github.com/leonasdev/.dotfiles/blob/master/.config/nvim/lua/leonasdev/keymaps.lua
--- https://github.com/brainfucksec/neovim-lua/blob/main/nvim/lua/core/keymaps.lua
 
 -- MOST IMPORTANT MAP:
 -- Map helper function
 
-local function map(mode, lhs, rhs, opts)
+local function map(modes, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
   if opts then
     options = vim.tbl_extend('force', options, opts)
   end
-  vim.keymap.set(mode, lhs, rhs, options)
+  if type(modes) == 'string' then
+    modes = { modes }
+  end
+  for _, mode in ipairs(modes) do
+    vim.keymap.set(mode, lhs, rhs, options)
+  end
 end
+
+-- Lazy
+map('n', '<leader>l', ':Lazy<CR>', { desc = 'Lazy' })
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+
+-- better up/down
+map({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
+map({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
@@ -103,8 +114,47 @@ map('n', '-', '<C-x>')
 map('n', '<Leader>gg', function()
   local selection = vim.fn.getline '.'
   local cur = vim.api.nvim_win_get_cursor(0)
-  local path = 'https://github.com/' .. string.match(selection, '%a+/%a+[%.lua]?[%.nvim]?[%.vim]?')
+  local path = 'https://github.com/' .. string.match(selection, '[%w%-%.]+/[%w%-%.]+')
   vim.ui.open(path)
-end, { expr = true })
+end, { desc = 'Open github string' })
 
+--toggle context
+map('n', '<Leader>tc', ':TSContextToggle<CR>', { desc = 'Toggle Treesitter Context' })
+
+--copy file path
+map('n', '<leader>cp', function()
+  vim.fn.setreg('+', vim.api.nvim_buf_get_name(0))
+end, { desc = 'Copy file path to clipboard' })
+
+-- open markdown preview of file
+map('n', '<leader>pv', ':MarkdownPreview<CR>', { desc = 'Preview markdown file in buffer' })
+
+-- Gen.nvim keymaps
+-- Gen default
+map({ 'n', 'v' }, '<leader>]', ':Gen<CR>')
+map({ 'n', 'v' }, '<leader>gch', ':Gen Chat<CR>')
+-- specific prompts
+map('v', '<leader>gcg', ':Gen Change<CR>')
+map('v', '<leader>ga', ':Gen Ask<CR>')
+map('v', '<leader>egs', ':Gen Enhance_Grammar_Spelling<CR>')
+map('v', '<leader>gs', ':Gen Summarize<CR>')
+map('v', '<leader>ew', ':Gen Enhance_Wording<CR>')
+map('v', '<leader>mc', ':Gen Make_Concise<CR>')
+map('v', '<leader>ml', ':Gen Make_List<CR>')
+map('v', '<leader>mt', ':Gen Make_Table<CR>')
+map('v', '<leader>rc', ':Gen Review_Code<CR>')
+map('v', '<leader>ec', ':Gen Enhance_Code<CR>')
+map('v', '<leader>cc', ':Gen Change_Code<CR>')
+
+-- keymap to
+map('n', '<leader>pl', function()
+  local clipboard = vim.fn.getreg '+'
+  local link_text = '[](' .. clipboard .. ')'
+  local cursor_pos = vim.api.nvim_win_get_cursor(0)
+  local row, col = cursor_pos[1], cursor_pos[2]
+
+  vim.api.nvim_buf_set_text(0, row - 1, col, row - 1, col, { link_text })
+  vim.api.nvim_win_set_cursor(0, { row, col + 1 })
+  vim.cmd 'startinsert'
+end, { desc = 'Paste Markdown Link and Title It' })
 -- vim: ts=2 sts=2 sw=2 et

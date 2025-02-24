@@ -12,6 +12,7 @@ return {
   -- NOTE: And you can specify dependencies as well
   dependencies = {
     -- Creates a beautiful debugger UI
+    --TODO: look into this: https://github.com/rcarriga/cmp-dap
     'rcarriga/nvim-dap-ui',
 
     -- Required dependency for nvim-dap-ui
