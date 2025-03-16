@@ -30,9 +30,7 @@ vim.opt.showmode = false
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 -- meant to run after UiEnter
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+vim.opt.clipboard = 'unnamedplus'
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -86,4 +84,7 @@ vim.o.shiftwidth = 2 -- Number of spaces inserted when indenting
 -- grep program
 vim.opt.grepprg = 'rg --vimgrep'
 vim.opt.grepformat = '%f:%l:%c:%m'
+
+-- log level
+vim.log.level = 'DEBUG'
 -- vim: ts=2 sts=2 sw=2 et

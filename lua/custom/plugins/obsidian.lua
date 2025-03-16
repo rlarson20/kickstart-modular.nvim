@@ -1,4 +1,6 @@
 return {
+  -- TODO: integrate idea from here
+  -- [image-nvim integration](https://github.com/epwalsh/obsidian.nvim/discussions/294)
   'epwalsh/obsidian.nvim',
   version = '*', -- recommended, use latest release instead of latest commit
   lazy = true,
@@ -247,7 +249,11 @@ return {
       -- Runs anytime you leave the buffer for a note.
       ---@param client obsidian.Client
       ---@param note obsidian.Note
-      leave_note = function(client, note) end,
+      leave_note = function(client, note)
+        vim.api.nvim_buf_call(note.bufnr or 0, function()
+          vim.cmd 'silent w'
+        end)
+      end,
 
       -- Runs right before writing the buffer for a note.
       ---@param client obsidian.Client

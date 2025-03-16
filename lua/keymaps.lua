@@ -150,6 +150,7 @@ map('v', '<leader>cc', ':Gen Change_Code<CR>')
 map('n', '<leader>pl', function()
   local clipboard = vim.fn.getreg '+'
   local link_text = '[](' .. clipboard .. ')'
+  vim.cmd 'normal o'
   local cursor_pos = vim.api.nvim_win_get_cursor(0)
   local row, col = cursor_pos[1], cursor_pos[2]
 
@@ -158,3 +159,4 @@ map('n', '<leader>pl', function()
   vim.cmd 'startinsert'
 end, { desc = 'Paste Markdown Link and Title It' })
 -- vim: ts=2 sts=2 sw=2 et
+map('n', '<leader>fm', ':OT2MDL<CR>', { desc = 'Convert OneTab lists to Markdown links' })
