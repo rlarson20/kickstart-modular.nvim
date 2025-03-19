@@ -14,6 +14,7 @@ return {
         -- "MD013", "MD025",
         -- "--" -- Required
         -- }
+        html = { 'htmlhint' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
