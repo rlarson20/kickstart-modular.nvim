@@ -126,9 +126,6 @@ map('n', '<leader>cp', function()
   vim.fn.setreg('+', vim.api.nvim_buf_get_name(0))
 end, { desc = 'Copy file path to clipboard' })
 
--- open markdown preview of file
-map('n', '<leader>pv', ':MarkdownPreview<CR>', { desc = 'Preview markdown file in buffer' })
-
 -- Gen.nvim keymaps
 -- Gen default
 map({ 'n', 'v' }, '<leader>]', ':Gen<CR>')
