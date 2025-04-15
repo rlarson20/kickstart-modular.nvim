@@ -7,8 +7,12 @@ return {
   event = {
     -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
     -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+    -- TODO: may or may not automate this for multiple vaults;
+    -- idea: input is segment between my home and the **.md
     'BufReadPre /Users/rjlarson/Desktop/Laugh-Tale/**.md',
     'BufNewFile /Users/rjlarson/Desktop/Laugh-Tale/**.md',
+    'BufReadPre /Users/rjlarson/src/Daedalus/Codex-Prometheum/**.md',
+    'BufNewFile /Users/rjlarson/src/Daedalus/Codex-Prometheum/**.md',
   },
   dependencies = {
     -- Required.
@@ -22,10 +26,32 @@ return {
         name = 'LaughTale',
         path = '~/Desktop/Laugh-Tale',
       },
-      -- {
-      --   name = 'work',
-      --   path = '~/vaults/work',
-      -- },
+      {
+        name = 'Codex-Prometheum',
+        path = '~/src/Daedalus/Codex-Prometheum',
+        overrides = {
+          notes_subdir = '00_Inbox',
+          daily_notes = {
+            -- Optional, if you keep daily notes in a separate directory.
+            folder = '10_Daily_Notes',
+            -- Optional, if you want to change the date format for the ID of daily notes.
+            date_format = '%Y-%m-%d',
+            -- Optional, if you want to change the date format of the default alias of daily notes.
+            alias_format = '%B %-d, %Y',
+            -- Optional, default tags to add to each new daily note created.
+            default_tags = { 'daily-notes' },
+            -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+            template = nil,
+          },
+          templates = {
+            folder = '07_Templates',
+            date_format = '%Y-%m-%d',
+            time_format = '%H:%M',
+            -- A map for custom variables, the key should be the variable and the value a function
+            substitutions = {},
+          },
+        },
+      },
     },
     -- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of
     -- 'workspaces'. For example:
