@@ -66,7 +66,7 @@ return {
 
     daily_notes = {
       -- Optional, if you keep daily notes in a separate directory.
-      folder = '02_Daily_Notes',
+      folder = '02_Periodic_Notes/02-01_Daily',
       -- Optional, if you want to change the date format for the ID of daily notes.
       date_format = '%Y-%m-%d',
       -- Optional, if you want to change the date format of the default alias of daily notes.
@@ -191,7 +191,7 @@ return {
 
     -- Optional, for templates (see below).
     templates = {
-      folder = '08_Templates',
+      folder = '01_Vault_Meta_and_MOCs/01-02_Templates',
       date_format = '%Y-%m-%d',
       time_format = '%H:%M',
       -- A map for custom variables, the key should be the variable and the value a function

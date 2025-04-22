@@ -8,6 +8,7 @@ return {
     dashboard = { enabled = true },
     explorer = { enabled = false },
     indent = { enabled = true },
+    image = { enabled = true },
     input = { enabled = true },
     notifier = {
       enabled = true,
