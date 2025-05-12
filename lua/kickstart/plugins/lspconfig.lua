@@ -157,8 +157,12 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- todo: organize the language servers
-        clangd = {},
-        gopls = {},
+        clangd = {
+          filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
+        },
+        gopls = {
+          filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+        },
         ruff = {
           settings = {
             organizeImports = true,
@@ -180,8 +184,18 @@ return {
           },
         },
         rust_analyzer = {},
-        html = {},
-        -- tsserver = {},
+        html = {
+          settings = {
+            configurationSection = { 'html', 'css', 'javascript' },
+            embeddedLanguages = {
+              css = true,
+              javascript = true,
+            },
+            provideFormatter = true,
+          },
+        },
+        java_language_server = {},
+        tsserver = {},
         -- agda_ls = {}, -- https://github.com/agda/agda-language-server
         -- als = {}, -- see lsps ## als, ada lang server
 

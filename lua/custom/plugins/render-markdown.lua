@@ -50,7 +50,7 @@ return {
     },
     anti_conceal = {
       -- This enables hiding any added text on the line the cursor is on.
-      enabled = true,
+      enabled = false,
       -- Which elements to always show, ignoring anti conceal behavior. Values can either be
       -- booleans to fix the behavior or string lists representing modes where anti conceal
       -- behavior will be ignored. Valid values are:
