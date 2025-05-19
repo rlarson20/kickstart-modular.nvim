@@ -1,7 +1,5 @@
 return {
-  -- TODO: integrate idea from here
-  -- [image-nvim integration](https://github.com/epwalsh/obsidian.nvim/discussions/294)
-  'epwalsh/obsidian.nvim',
+  'obsidian-nvim/obsidian.nvim',
   version = '*', -- recommended, use latest release instead of latest commit
   lazy = true,
   event = {
@@ -17,8 +15,13 @@ return {
   dependencies = {
     -- Required.
     'nvim-lua/plenary.nvim',
-
-    -- see below for full list of optional dependencies 👇
+    -- completion
+    'hrsh7th/nvim-cmp',
+    -- picker
+    'nvim-telescope/telescope.nvim',
+    -- syntax highlighting
+    'nvim-treesitter/nvim-treesitter',
+    'MeanderingProgrammer/render-markdown.nvim',
   },
   opts = {
     workspaces = {

@@ -1,9 +1,9 @@
 return {
-  'Exafunction/codeium.nvim',
+  'Exafunction/windsurf.nvim',
   event = 'VeryLazy',
   dependencies = {
     'nvim-lua/plenary.nvim',
     'hrsh7th/nvim-cmp',
   },
-  opts = { enable_chat = true },
+  opts = { enable_chat = false },
 }

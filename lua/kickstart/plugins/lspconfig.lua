@@ -195,7 +195,7 @@ return {
           },
         },
         java_language_server = {},
-        tsserver = {},
+        -- tsserver = {},
         -- agda_ls = {}, -- https://github.com/agda/agda-language-server
         -- als = {}, -- see lsps ## als, ada lang server
 

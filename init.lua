@@ -6,6 +6,9 @@ vim.g.maplocalleader = ' '
 -- [[ Install `lazy.nvim` plugin manager ]]
 require 'lazy-bootstrap'
 
+-- gets python checkhealth off my ass
+vim.g.python3_host_prog = vim.fn.expand '~/src/venv/Neovim/bin/python3'
+
 -- load keymaps, options, autocmds
 require 'options'
 
