@@ -29,7 +29,7 @@ return {
         lua = {
           'stylua',
         },
-        markdown = { 'markdownlint', 'markdown-toc' },
+        markdown = { 'markdownlint' },
         python = { 'ruff', 'autopep8', 'autoflake', 'docformatter', 'isort' },
         go = { 'gofmt' },
         bash = { 'shfmt', 'beautysh' },
@@ -46,6 +46,11 @@ return {
         -- is found.
         -- javascript = { { "prettierd", "prettier" } },
       },
+      -- formatters = {
+      --   markdownlint = {
+      --     prepend_args = { '--disable', 'MD047' },
+      --   },
+      -- },
     },
   },
 }

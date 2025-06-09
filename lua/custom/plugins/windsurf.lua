@@ -5,5 +5,7 @@ return {
     'nvim-lua/plenary.nvim',
     'hrsh7th/nvim-cmp',
   },
-  opts = { enable_chat = false },
+  config = function()
+    require('codeium').setup {}
+  end,
 }

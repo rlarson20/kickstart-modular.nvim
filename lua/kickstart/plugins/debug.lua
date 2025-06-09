@@ -9,6 +9,20 @@
 return {
   -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
+  keys = { -- or cmd = { "DapContinue", … }
+    {
+      '<F5>',
+      function()
+        require('dap').continue()
+      end,
+    },
+    {
+      '<F10>',
+      function()
+        require('dap').step_over()
+      end,
+    },
+  },
   -- NOTE: And you can specify dependencies as well
   dependencies = {
     -- Creates a beautiful debugger UI

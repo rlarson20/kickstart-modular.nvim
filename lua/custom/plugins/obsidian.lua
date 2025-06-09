@@ -181,14 +181,23 @@ return {
 
       local out = { id = note.id, aliases = note.aliases, tags = note.tags }
 
+      string.trim = function(s)
+        return s:match '^%s*(.-)%s*$'
+      end
       -- `note.metadata` contains any manually added fields in the frontmatter.
       -- So here we just make sure those fields are kept in the frontmatter.
       if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
         for k, v in pairs(note.metadata) do
-          out[k] = v
+          -- Special handling for the source field
+          if k == 'source' and type(v) == 'string' then
+            -- Strip any YAML formatting that might have been added
+            local cleaned = v:gsub('^>%-?%s*', ''):gsub('\n', ' '):trim()
+            out[k] = cleaned
+          else
+            out[k] = v
+          end
         end
       end
-
       return out
     end,
 
