@@ -1,6 +1,7 @@
 return {
   --docs path is /Users/rjlarson/src/clones/Neovim_Conf/Nv_Plugins/GH_Plugins/Directory_Nav/otavioschwanck_arrow_nvim/README.md
   'otavioschwanck/arrow.nvim',
+  event = 'VeryLazy',
   opts = {
     show_icons = true,
     leader_key = ';', -- Recommended to be a single key

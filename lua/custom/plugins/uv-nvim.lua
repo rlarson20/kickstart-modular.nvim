@@ -1,5 +1,6 @@
 return {
   'benomahony/uv.nvim',
+  ft = { 'python' },
   opts = {
     -- Auto-activate virtual environments when found
     auto_activate_venv = true,
@@ -8,7 +9,7 @@ return {
     auto_commands = true,
 
     -- Integration with snacks picker
-    picker_integration = false, --only because i haven't set up snacks yet
+    picker_integration = false, --TODO: fix snacks
 
     -- Keymaps to register (set to false to disable)
     keymaps = {
