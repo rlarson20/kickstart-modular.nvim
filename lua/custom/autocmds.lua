@@ -90,19 +90,21 @@ my_autocmd('FileType', {
   pattern = 'markdown',
   callback = function()
     -- Create a buffer-local mapping for <CR> when in insert mode
-    vim.keymap.set('i', '<CR>', function()
-      local md_list = require 'markdown.list'
+    if require('util').has 'markdown.list' then
+      vim.keymap.set('i', '<CR>', function()
+        local md_list = require 'markdown.list'
 
-      -- Try to insert a list item below the current position
-      local inserted = md_list.insert_list_item_below()
+        -- Try to insert a list item below the current position
+        local inserted = md_list.insert_list_item_below()
 
-      -- If not in a list, just do the default Enter behavior
-      if not inserted then
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'n', false)
-      end
+        -- If not in a list, just do the default Enter behavior
+        if not inserted then
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'n', false)
+        end
 
-      -- No need to reposition cursor as insert_list_item_below already handles cursor positioning
-      -- and puts it in insert mode at the end of the new list item
-    end, { buffer = true, desc = 'Smart list continuation' })
+        -- No need to reposition cursor as insert_list_item_below already handles cursor positioning
+        -- and puts it in insert mode at the end of the new list item
+      end, { buffer = true, desc = 'Smart list continuation' })
+    end
   end,
 })
