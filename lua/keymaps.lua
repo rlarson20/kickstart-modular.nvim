@@ -31,7 +31,13 @@ map({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
-map('n', '<Esc>', '<cmd>nohlsearch<CR>')
+map('n', '<Esc>', function()
+  if vim.v.hlsearch == 1 then
+    vim.cmd.nohlsearch()
+  else
+    vim.cmd.stopinsert()
+  end
+end)
 
 -- Diagnostic keymaps
 map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
