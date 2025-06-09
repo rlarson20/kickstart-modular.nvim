@@ -112,6 +112,12 @@ return {
         end,
         opts = { buffer = true, expr = true },
       },
+      ['<leader>nn'] = {
+        action = function()
+          return require('obsidian.Client').create_note()
+        end,
+        opts = { buffer = true },
+      },
     },
 
     -- Where to put new notes. Valid options are
