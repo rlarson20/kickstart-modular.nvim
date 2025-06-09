@@ -8,6 +8,7 @@ return {
     name = 'catppuccin',
     priority = 1000, --make sure to load this first
     opts = {
+      transparent_background = true,
       flavour = 'mocha',
       integrations = {
         cmp = true,

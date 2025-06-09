@@ -19,14 +19,6 @@ require 'custom.usercmds'
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
 
--- TODO: move this into own file, probably put w/ colorscheme
-vim.cmd [[
-  highlight Normal guibg=none
-  highlight NonText guibg=none
-  highlight Normal ctermbg=none
-  highlight NonText ctermbg=none
-]]
-
 --
 -- first load run
 -- line 67 of dreamsofcode init.lua, if firstload then install all mason packs,
