@@ -37,7 +37,7 @@ map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 map('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+map('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -74,8 +74,6 @@ map('n', '<leader>th', '<C-w>t<C-w>H', { desc = 'Change horizontal to vertical' 
 -- map('n', '<leader>S', ':w<CR>', { desc = 'Save file' })
 -- Reload config
 map('n', '<leader>R', ':so %<CR>', { desc = 'Reload config file' })
--- Close ALL WINDOWS
-map('n', '<leader>q', ':qa!<CR>', { desc = 'Close ALL WINDOWS' })
 
 -- Smart insert in blank line (auto indent)
 map('n', 'i', function()
