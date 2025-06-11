@@ -112,12 +112,6 @@ return {
         end,
         opts = { buffer = true, expr = true },
       },
-      ['<leader>nn'] = {
-        action = function()
-          return require('obsidian.Client').create_note()
-        end,
-        opts = { buffer = true },
-      },
     },
 
     -- Where to put new notes. Valid options are
@@ -235,13 +229,6 @@ return {
       -- vim.fn.jobstart({"xdg-open", url})  -- linux
       -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
     end,
-
-    -- Optional, set to true if you use the Obsidian Advanced URI plugin. TODO: GET SET UP
-    -- https://github.com/Vinzent03/obsidian-advanced-uri
-    use_advanced_uri = true,
-
-    -- Optional, set to true to force ':ObsidianOpen' to bring the app to the foreground.
-    open_app_foreground = true,
 
     picker = {
       -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
